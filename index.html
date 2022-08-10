@@ -20,8 +20,12 @@
         </div>
         <div class="notes">
             <div class="note" v-for="{ id, title } in notes" :key="id">
-                <p>
-                    {{ title }}
+                <p v-if="editedNoteId === id">
+                    <input type="text" :value="title" @keydown="editNote"/>
+                </p>
+                <p v-else>
+                    <span @click="removeNote(id)">&#10005;</span>
+                    <span @dblclick="setEditedNoteId(id)">{{ title }}</span>
                 </p>
             </div>
         </div>

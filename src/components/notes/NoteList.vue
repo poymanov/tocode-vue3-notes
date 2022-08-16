@@ -1,6 +1,11 @@
 <template>
   <div class="notes">
-    <NoteItem :note="item" v-for="item in items" :key="item.id" />
+    <NoteItem
+      :note="item"
+      v-for="item in items"
+      :key="item.id"
+      @onDelete="onDeleteItem"
+    />
   </div>
 </template>
 
@@ -13,6 +18,11 @@ export default {
     items: {
       type: Array,
       required: true,
+    },
+  },
+  methods: {
+    onDeleteItem(id) {
+      this.$emit("onDeleteNote", id);
     },
   },
 };

@@ -1,7 +1,7 @@
 <template>
   <div class="view-sm isCenter">
     <NoteForm @onSubmit="addNote" />
-    <NoteList :items="notes" />
+    <NoteList :items="notes" @onDeleteNote="deleteNote" />
   </div>
 </template>
 
@@ -27,6 +27,9 @@ export default {
         title: text,
       };
       this.notes.push(newNote);
+    },
+    deleteNote(id) {
+      this.notes = this.notes.filter((note) => note.id !== id);
     },
   },
 };

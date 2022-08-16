@@ -1,11 +1,35 @@
-# Notes
+# .
 
-Приложение для управления списком заметок - добавление, изменение, удаление.
+This template should help get you started developing with Vue 3 in Vite.
 
-### Запуск:
+## Recommended IDE Setup
 
-Открыть `index.html`.
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-### Цель проекта
+## Customize configuration
 
-Код написан в образовательных целях в рамках курса [Vue.js 3 с нуля до результата](https://tocode.ru/courses/vuejs-3-s-nulya-do-rezultata/).
+See [Vite Configuration Reference](https://vitejs.dev/config/).
+
+## Project Setup
+
+```sh
+npm install
+```
+
+### Compile and Hot-Reload for Development
+
+```sh
+npm run dev
+```
+
+### Compile and Minify for Production
+
+```sh
+npm run build
+```
+
+### Lint with [ESLint](https://eslint.org/)
+
+```sh
+npm run lint
+```

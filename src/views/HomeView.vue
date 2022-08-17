@@ -21,6 +21,17 @@ export default {
       tags: ["home", "travel", "work"],
     };
   },
+  created() {
+    this.getNotes();
+  },
+  watch: {
+    notes: {
+      handler: function (updatedNotes) {
+        localStorage.setItem("notes", JSON.stringify(updatedNotes));
+      },
+      deep: true,
+    },
+  },
   methods: {
     addNote(note) {
       const newNote = {
@@ -32,6 +43,13 @@ export default {
     },
     deleteNote(id) {
       this.notes = this.notes.filter((note) => note.id !== id);
+    },
+    getNotes() {
+      const localNotes = localStorage.getItem("notes");
+
+      if (localNotes) {
+        this.notes = JSON.parse(localNotes);
+      }
     },
   },
 };

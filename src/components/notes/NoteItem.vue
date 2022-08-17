@@ -5,7 +5,7 @@
       <p class="note-delete" @click="$emit('onDelete', note.id)">x</p>
     </div>
     <div class="note-footer">
-      <TagsList :items="note.tags" />
+      <TagsList :items="note.tags" :isPreview="true" />
     </div>
   </div>
 </template>

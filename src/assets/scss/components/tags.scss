@@ -22,3 +22,8 @@
     content: "#";
   }
 }
+
+.tag-item.isActive {
+  background-color: $primary-color;
+  color: $default-color;
+}

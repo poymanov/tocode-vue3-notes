@@ -1,6 +1,6 @@
 <template>
   <div class="view-sm isCenter">
-    <NoteForm @onSubmit="addNote" />
+    <NoteForm :tags="tags" @onSubmit="addNote" />
     <NoteList :items="notes" @onDeleteNote="deleteNote" />
   </div>
 </template>
@@ -18,14 +18,15 @@ export default {
         { id: 2, title: "Task 2", tags: ["travel"] },
         { id: 3, title: "Task 3", tags: [] },
       ],
+      tags: ["home", "travel", "work"],
     };
   },
   methods: {
-    addNote(text) {
+    addNote(note) {
       const newNote = {
         id: this.notes.length + 1,
-        title: text,
-        tags: [],
+        title: note.text,
+        tags: note.tags,
       };
       this.notes.push(newNote);
     },

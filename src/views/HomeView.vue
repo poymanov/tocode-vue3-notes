@@ -14,9 +14,9 @@ export default {
   data() {
     return {
       notes: [
-        { id: 1, title: "Task 1" },
-        { id: 2, title: "Task 2" },
-        { id: 3, title: "Task 3" },
+        { id: 1, title: "Task 1", tags: ["home", "travel", "work"] },
+        { id: 2, title: "Task 2", tags: ["travel"] },
+        { id: 3, title: "Task 3", tags: [] },
       ],
     };
   },
@@ -25,6 +25,7 @@ export default {
       const newNote = {
         id: this.notes.length + 1,
         title: text,
+        tags: [],
       };
       this.notes.push(newNote);
     },

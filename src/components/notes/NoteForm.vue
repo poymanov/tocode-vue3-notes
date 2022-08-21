@@ -1,10 +1,10 @@
 <template>
-  <form class="note-form" @submit.prevent="submit">
+  <form class="note-form" @submit.prevent="handleSubmit">
     <textarea required v-model="text" placeholder="Enter your note"></textarea>
     <TagsList
       :items="tags"
       :selectedItems="selectedTags"
-      @onSelectItem="addTag"
+      @onSelectItem="handleAddTag"
     />
     <button class="btn btnPrimary" type="submit">New note</button>
   </form>
@@ -15,33 +15,27 @@ import TagsList from "@/components/tags/TagsList.vue";
 
 export default {
   components: { TagsList },
-  props: {
-    tags: {
-      type: Array,
-      required: true,
-    },
-  },
   data() {
     return {
       text: null,
       selectedTags: [],
+      tags: ["home", "travel", "work"],
     };
   },
   methods: {
-    submit() {
+    handleSubmit() {
       const newNote = {
-        text: this.text,
+        title: this.text,
         tags: this.selectedTags,
       };
-
-      this.$emit("onSubmit", newNote);
+      this.$store.dispatch("addNote", newNote);
       this.reset();
     },
     reset() {
       this.text = null;
       this.selectedTags = [];
     },
-    addTag(tag) {
+    handleAddTag(tag) {
       const tagIndex = this.selectedTags.indexOf(tag);
 
       if (tagIndex < 0) {

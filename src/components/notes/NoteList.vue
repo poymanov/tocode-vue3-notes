@@ -1,11 +1,6 @@
 <template>
   <div class="notes">
-    <NoteItem
-      :note="item"
-      v-for="item in items"
-      :key="item.id"
-      @onDelete="onDeleteItem"
-    />
+    <NoteItem :note="item" v-for="item in items" :key="item.id" />
   </div>
 </template>
 
@@ -14,16 +9,13 @@ import NoteItem from "@/components/notes/NoteItem.vue";
 
 export default {
   components: { NoteItem },
-  props: {
-    items: {
-      type: Array,
-      required: true,
-    },
+  data() {
+    return {
+      items: [],
+    };
   },
-  methods: {
-    onDeleteItem(id) {
-      this.$emit("onDeleteNote", id);
-    },
+  created() {
+    this.items = this.$store.getters.getNotes;
   },
 };
 </script>

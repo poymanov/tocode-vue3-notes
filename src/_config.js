@@ -13,4 +13,9 @@ export const app = {
       title: "About",
     },
   ],
+  defaultNotes: [
+    { id: 1, title: "Task 1", tags: ["home", "travel", "work"] },
+    { id: 2, title: "Task 2", tags: ["travel"] },
+    { id: 3, title: "Task 3", tags: [] },
+  ],
 };
